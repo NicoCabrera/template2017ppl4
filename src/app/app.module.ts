@@ -9,13 +9,21 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { GridComponent } from './components/grid/grid.component';
+import { HomeComponent } from './components/home/home.component';
+import { MyHttpService } from './services/my-http.service';
+import { DetailComponent } from './components/detail/detail.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    GridComponent,
+    HomeComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +32,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     RouterModule,
     HttpModule
   ],
-  providers: [],
+  providers: [MyHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

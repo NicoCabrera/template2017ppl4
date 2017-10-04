@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from '../components/login/login.component';
 import { ErrorComponent } from '../components/error/error.component';
 import { MainMenuComponent } from '../components/main-menu/main-menu.component';
+import { GridComponent } from '../components/grid/grid.component';
+import { HomeComponent } from '../components/home/home.component';
 
 
 const appRoutes: Routes = [
@@ -21,16 +23,16 @@ const appRoutes: Routes = [
   {
     path: "menu",
     component: MainMenuComponent,
-    /*children: [
+    children: [
       {
-        path: "adivina",
-        component: AdivinaMasListaComponent
+        path: "grid",
+        component: GridComponent
       },
       {
-        path: "actividad",
-        component: ActividadMasListaComponent
-      },]
-    */
+        path: "home",
+        component: HomeComponent
+      }
+    ]
   },
   {
     path: "**",

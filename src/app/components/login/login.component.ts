@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   checkUser() {
     localStorage.setItem("user",this.email);
-    this.router.navigate(["/menu"]);
+    this.router.navigate(["/menu/home"]);
   }
   setAdminData(){
     this.email = "admin@admin.com";

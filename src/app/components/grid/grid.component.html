@@ -1,0 +1,64 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Género</th>
+        <th>Foto</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of results" [ngClass]="usuario.sexo" (click)="selectedItemOnClick(usuario)">
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.correo}}</td>
+        <td>{{usuario.sexo}}</td>
+        <td>
+          <img src="assets/img/{{usuario.foto}}" class="rounded mini" alt="...">
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="delete(usuario.idusuario)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  [(ngModel)]="showEditForm">
+     Editar
+  </label>
+  <div *ngIf="showEditForm">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Nombre</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nombre del usuario" [(ngModel)]="usuario.nombre"
+          name="nombre">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el correo electrónico"
+          [(ngModel)]="usuario.correo" name="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa la contraseña" [(ngModel)]="usuario.pass"
+          name="password">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Género</label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="usuario.sexo" name="sexo">
+            <option>M</option>
+            <option>F</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" ngModel (change)="getFiles($event)" name="foto">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="save()">Guardar</button>
+    </form>
+  </div>
+
+  <app-detail [usuario]="selectedUser"></app-detail>
+
+</div>
