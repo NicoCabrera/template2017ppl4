@@ -34,6 +34,6 @@ export class MyHttpService {
   }
   private handleError(error: Response | any) {
 
-    return error;
+    return JSON.parse(error["_body"]);
   }
 }
